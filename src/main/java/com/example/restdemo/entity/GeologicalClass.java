@@ -1,9 +1,6 @@
 package com.example.restdemo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class GeologicalClass {
@@ -14,6 +11,10 @@ public class GeologicalClass {
     private String name;
     private String code;
 
+    @ManyToOne
+    @JoinColumn(name = "section_id")
+    private Section section;
+
     public GeologicalClass() {
     }
 
@@ -22,7 +23,6 @@ public class GeologicalClass {
         this.code = code;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -46,4 +46,9 @@ public class GeologicalClass {
     public void setCode(String code) {
         this.code = code;
     }
+
+    public void setSection(Section section) {
+        this.section = section;
+    }
+
 }

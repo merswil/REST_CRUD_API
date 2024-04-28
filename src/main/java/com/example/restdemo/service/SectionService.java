@@ -43,8 +43,8 @@ public class SectionService {
         sectionRepository.deleteById(id);
     }
 
-    public List<Section> getSectionsByGeologicalClassCode(String code) {
-        return sectionRepository.findByGeologicalClassesCode(code);
+    public List<Section> findSectionsByGeologicalClassCode(String code) {
+        return sectionRepository.findSectionsByGeologicalClassesCode(code);
     }
 }
 

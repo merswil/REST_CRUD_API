@@ -4,6 +4,8 @@ package com.example.restdemo.controller;
 import com.example.restdemo.entity.Section;
 import com.example.restdemo.service.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,7 +44,7 @@ public class SectionController {
     }
 
     @GetMapping("/by-code")
-    public List<Section> getSectionsByGeologicalClassCode(@RequestParam String code) {
-        return sectionService.getSectionsByGeologicalClassCode(code);
+    public List<Section> getSectionsByGeologicalClassCode(@RequestParam("code") String code) {
+        return sectionService.findSectionsByGeologicalClassCode(code);
     }
 }

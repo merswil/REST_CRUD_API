@@ -12,8 +12,7 @@ public class Section {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "section_id")
+    @OneToMany(mappedBy = "section", cascade = CascadeType.ALL)
     private List<GeologicalClass> geologicalClasses;
 
     public Section() {
@@ -24,7 +23,6 @@ public class Section {
         this.geologicalClasses = geologicalClasses;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }
